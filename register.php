@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result->execute([$username, $password]);
 
     echo "<br>";
-    echo "User Has been added to the system."; 
+    echo "User Has been added to the system.";
+    echo "balls";
 
 }
 
