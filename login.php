@@ -10,15 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["user_password"];
 
     $sql = "SELECT * FROM metadata
-            WHERE VALUES (?, ?)";
+            WHERE username = ?";
 
     $result = $pdo->prepare($sql);
 
-    $result->execute([$username, $password]);
+    $result->execute([$username]);
 
-    $user = $result($username);
+    $user = ->fetch();
 
-    if ($user && password_verify($password, $user ["password"])) {
+    if ($user && password_verify($password, $user ["user_password"])) {
             
         $_SESSION["username"] = $user["username"];
 
