@@ -9,8 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["user_password"];
 
-    $sql = "SELECT * FROM metadata
-            WHERE username = ? LIMIT 1";
+    $sql = "SELECT * FROM metadata WHERE username = ?";
 
     $result = $pdo->prepare($sql);
 
