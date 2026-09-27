@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -10,15 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["user_password"];
 
     $sql = "SELECT * FROM metadata
-            WHERE VALUES username = $username, user_password = $password ";
+            WHERE username = ? LIMIT 1";
 
     $result = $pdo->prepare($sql);
 
-    $result->execute([$username, $password]);
+    $result->execute([$username]);
 
-    $user = $result($username);
+    $user = $result->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($password, $user ["password"])) {
+    if ($user && password_verify($password, $user ["user_password"])) {
             
         $_SESSION["username"] = $user["username"];
 
