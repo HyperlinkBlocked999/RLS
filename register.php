@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "<br>";
     echo "User Has been added to the system.";
-    echo "balls";
 
 }
 
