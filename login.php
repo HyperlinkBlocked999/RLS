@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["user_password"];
 
     $sql = "SELECT * FROM metadata
-            WHERE VALUES (?, ?)";
+            WHERE VALUES username = $username, user_password = $password ";
 
     $result = $pdo->prepare($sql);
 
